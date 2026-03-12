@@ -1,5 +1,5 @@
 {
-  "title": "PostPilot",
+  "title": "Post Pilot",
   "description": "AI-powered tool that transforms blog posts into SEO-optimized content and social-ready posts.",
   "generateButton": "Generate",
   "pasteBlogPost": "Paste your blog post here...",
@@ -15,5 +15,6 @@
   "linkedInPostTitle": "LinkedIn Post",
   "copyButton": "Copy",
   "loading": "Generating...",
-  "copied": "Copied!"
+  "copied": "Copied!",
+  "noResult": "Oops! No results yet."
 }

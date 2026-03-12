@@ -1,5 +1,5 @@
 {
-  "title": "PostPilot",
+  "title": "Post Pilot",
   "description": "블로그 글을 SEO 최적화 콘텐츠와 소셜용 포스트로 변환하는 AI 도구입니다.",
   "generateButton": "생성하기",
   "pasteBlogPost": "블로그 글을 여기에 붙여넣으세요...",
@@ -15,5 +15,6 @@
   "linkedInPostTitle": "링크드인 포스트",
   "copyButton": "복사",
   "loading": "생성 중...",
-  "copied": "복사됨!"
+  "copied": "복사됨!",
+  "noResult": "아직 결과가 없어요!"
 }
