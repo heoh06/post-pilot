@@ -3,10 +3,10 @@
 import { useTranslations } from "next-intl";
 import { useState } from "react";
 
-import { LinkedInCard } from "@/components/LinkedInCard";
-import { ResultCard } from "@/components/ResultCard";
 import SideBar from "@/components/SideBar";
-import { TweetCard } from "@/components/TweetCard";
+import GeneratedContent from "@/components/GeneratedContent";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
+import Image from "next/image";
 
 type TabType = "seo" | "twitter" | "linkedin";
 
@@ -62,98 +62,17 @@ export default function HomePage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
-      <div className="mx-auto max-w-4xl px-6 py-12">
+    <main className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
+      <header className="flex items-center justify-between bg-white px-10 h-[60px]">
+        <Image src="/logo.png" alt="PostPilot" width={40} height={40} />
+        <LanguageSwitcher />
+      </header>
+      <div className="flex h-full max-w-6xl px-6 pt-10 mx-auto gap-10">
         {/* Header */}
         <SideBar blogPost={blogPost} setBlogPost={setBlogPost} loading={loading} handleGenerate={handleGenerate} />
-
         {/* Results Section with Tabs */}
-        {result && (
-          <section className="space-y-6">
-            {/* Tab Navigation */}
-            <div className="flex justify-center">
-              <div className="inline-flex rounded-xl border border-gray-200 bg-white p-1 shadow-sm">
-                <button
-                  type="button"
-                  onClick={() => setActiveTab("seo")}
-                  className={`rounded-lg px-6 py-2 font-medium transition-all ${activeTab === "seo"
-                    ? "bg-blue-600 text-white shadow-sm"
-                    : "text-gray-600 hover:text-gray-900"
-                    }`}
-                >
-                  {t("tabSeo")}
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setActiveTab("twitter")}
-                  className={`rounded-lg px-6 py-2 font-medium transition-all ${activeTab === "twitter"
-                    ? "bg-blue-600 text-white shadow-sm"
-                    : "text-gray-600 hover:text-gray-900"
-                    }`}
-                >
-                  {t("tabTwitter")}
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setActiveTab("linkedin")}
-                  className={`rounded-lg px-6 py-2 font-medium transition-all ${activeTab === "linkedin"
-                    ? "bg-blue-600 text-white shadow-sm"
-                    : "text-gray-600 hover:text-gray-900"
-                    }`}
-                >
-                  {t("tabLinkedIn")}
-                </button>
-              </div>
-            </div>
-
-            {/* Tab Content */}
-            <div className="space-y-4">
-              {activeTab === "seo" && (
-                <div className="space-y-4">
-                  <ResultCard title={t("seoTitle")} content={result.title} />
-                  <ResultCard
-                    title={t("metaDescription")}
-                    content={result.metaDescription}
-                  />
-                  <ResultCard title={t("tags")} content={result.tags} />
-                  <ResultCard
-                    title={t("koreanVersion")}
-                    content={result.seoOptimizedKorean}
-                  />
-                  <ResultCard
-                    title={t("englishVersion")}
-                    content={result.englishVersion}
-                  />
-                </div>
-              )}
-
-              {activeTab === "twitter" && (
-                <div className="space-y-4">
-                  {result.twitterThread.length > 0 ? (
-                    result.twitterThread.map((tweet, index) => (
-                      <TweetCard
-                        key={index}
-                        content={tweet}
-                        index={index + 1}
-                      />
-                    ))
-                  ) : (
-                    <p className="rounded-xl border border-gray-200 bg-white p-6 text-gray-500">
-                      No Twitter thread generated.
-                    </p>
-                  )}
-                </div>
-              )}
-
-              {activeTab === "linkedin" && (
-                <div className="flex justify-center">
-                  <LinkedInCard content={result.linkedInPost} />
-                </div>
-              )}
-            </div>
-          </section>
-        )}
+        <GeneratedContent result={result} activeTab={activeTab} setActiveTab={setActiveTab} />
       </div>
-    </div>
+    </main>
   );
 }
