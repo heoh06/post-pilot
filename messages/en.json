@@ -1,0 +1,19 @@
+{
+  "title": "PostPilot",
+  "description": "AI-powered tool that transforms blog posts into SEO-optimized content and social-ready posts.",
+  "generateButton": "Generate",
+  "pasteBlogPost": "Paste your blog post here...",
+  "resultTitle": "Results",
+  "tabSeo": "SEO",
+  "tabTwitter": "Twitter",
+  "tabLinkedIn": "LinkedIn",
+  "seoTitle": "Title",
+  "metaDescription": "Meta Description",
+  "tags": "SEO Tags",
+  "koreanVersion": "SEO Optimized Version",
+  "englishVersion": "English Version",
+  "linkedInPostTitle": "LinkedIn Post",
+  "copyButton": "Copy",
+  "loading": "Generating...",
+  "copied": "Copied!"
+}
