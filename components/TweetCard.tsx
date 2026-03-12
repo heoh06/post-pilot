@@ -1,7 +1,8 @@
 "use client";
 
-import { Check,Copy } from "lucide-react";
+import { Check, Copy } from "lucide-react";
 import { useState } from "react";
+import Card from "./ui/card";
 
 interface TweetCardProps {
   content: string;
@@ -18,7 +19,7 @@ export function TweetCard({ content, index }: TweetCardProps) {
   };
 
   return (
-    <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-md">
+    <Card>
       <div className="mb-3 flex items-start justify-between gap-2">
         <span className="font-semibold text-gray-900">Tweet {index}</span>
         <button
@@ -37,6 +38,6 @@ export function TweetCard({ content, index }: TweetCardProps) {
       <p className="whitespace-pre-wrap text-sm leading-relaxed text-gray-700">
         {content}
       </p>
-    </div>
+    </Card>
   );
 }

@@ -1,7 +1,8 @@
 "use client";
 
-import { Check,Copy } from "lucide-react";
+import { Check, Copy } from "lucide-react";
 import { useState } from "react";
+import Card from "./ui/card";
 
 interface ResultCardProps {
   title: string;
@@ -20,7 +21,7 @@ export function ResultCard({ title, content }: ResultCardProps) {
   if (!content) return null;
 
   return (
-    <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-md">
+    <Card>
       <div className="mb-3 flex items-start justify-between gap-2">
         <h3 className="font-semibold text-gray-900">{title}</h3>
         <button
@@ -39,6 +40,6 @@ export function ResultCard({ title, content }: ResultCardProps) {
       <p className="whitespace-pre-wrap text-sm leading-relaxed text-gray-700">
         {content}
       </p>
-    </div>
+    </Card>
   );
 }

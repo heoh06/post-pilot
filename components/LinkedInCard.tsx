@@ -1,8 +1,9 @@
 "use client";
 
-import { Check,Copy } from "lucide-react";
+import { Check, Copy } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
+import Card from "./ui/card";
 
 interface LinkedInCardProps {
   content: string;
@@ -21,7 +22,7 @@ export function LinkedInCard({ content }: LinkedInCardProps) {
   if (!content) return null;
 
   return (
-    <div className="max-w-2xl rounded-xl border border-gray-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-md">
+    <Card>
       <div className="mb-4 flex items-start justify-between gap-2">
         <h3 className="font-semibold text-gray-900">{t("linkedInPostTitle")}</h3>
         <button
@@ -40,6 +41,6 @@ export function LinkedInCard({ content }: LinkedInCardProps) {
       <p className="whitespace-pre-wrap text-sm leading-relaxed text-gray-700">
         {content}
       </p>
-    </div>
+    </Card>
   );
 }
